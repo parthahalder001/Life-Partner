@@ -1,0 +1,7 @@
+{
+  "name": "Life Partner - Your Virtual Companion",
+  "description": "A deeply personal AI companion that acts as a supportive and loving partner, capable of chatting in both Bengali and English with personalized emotional vibes.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
