@@ -6,15 +6,34 @@ interface PersonaSetupProps {
   onComplete: (persona: Persona) => void;
 }
 
+const languages = [
+  { name: 'Bengali (বাংলা)', value: 'Bengali' },
+  { name: 'English', value: 'English' },
+  { name: 'Spanish (Español)', value: 'Spanish' },
+  { name: 'French (Français)', value: 'French' },
+  { name: 'Hindi (हिन्दी)', value: 'Hindi' },
+  { name: 'Arabic (العربية)', value: 'Arabic' },
+  { name: 'Portuguese (Português)', value: 'Portuguese' },
+  { name: 'Russian (Русский)', value: 'Russian' },
+  { name: 'Japanese (日本語)', value: 'Japanese' },
+  { name: 'German (Deutsch)', value: 'German' },
+  { name: 'Korean (한국어)', value: 'Korean' },
+  { name: 'Italian (Italiano)', value: 'Italian' },
+  { name: 'Turkish (Türkçe)', value: 'Turkish' },
+  { name: 'Urdu (اردو)', value: 'Urdu' },
+  { name: 'Indonesian (Bahasa Indonesia)', value: 'Indonesian' },
+];
+
 const PersonaSetup: React.FC<PersonaSetupProps> = ({ onComplete }) => {
   const [name, setName] = useState('');
   const [relation, setRelation] = useState<RelationType>('Girlfriend');
   const [vibe, setVibe] = useState<VibeType>('Sweet');
+  const [language, setLanguage] = useState('Bengali');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (name.trim()) {
-      onComplete({ name, relation, vibe });
+      onComplete({ name, relation, vibe, language });
     }
   };
 
@@ -55,6 +74,21 @@ const PersonaSetup: React.FC<PersonaSetupProps> = ({ onComplete }) => {
                 </button>
               ))}
             </div>
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Communication Language</label>
+            <select 
+              value={language}
+              onChange={(e) => setLanguage(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl border border-slate-700 focus:ring-2 focus:ring-pink-500 outline-none transition-all bg-slate-900/50 text-white font-medium appearance-none"
+            >
+              {languages.map((lang) => (
+                <option key={lang.value} value={lang.value} className="bg-slate-900">
+                  {lang.name}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div>

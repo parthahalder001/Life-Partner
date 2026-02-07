@@ -6,6 +6,7 @@ export interface Persona {
   name: string;
   relation: RelationType;
   vibe: VibeType;
+  language: string;
 }
 
 export interface Message {
